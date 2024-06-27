@@ -173,7 +173,7 @@ class m190417_202153_migrateDataToTable extends Migration
                 unset($payload['type']);
                 unset($payload['value']);
 
-                if ($value && is_numeric($value)) {
+                if ($value && is_numeric($value) && $value <= 2147483647) {
                     $doesExist = (new Query())
                       ->select('id')
                       ->where(['id' => $value])
