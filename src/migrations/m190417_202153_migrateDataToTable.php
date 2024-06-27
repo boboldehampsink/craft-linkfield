@@ -189,7 +189,7 @@ class m190417_202153_migrateDataToTable extends Migration
                   $row['elementId'],                          // elementId
                   $row['siteId'],                             // siteId
                   $field->id,                                 // fieldId
-                  is_numeric($value) ? $value : null,         // linkedId
+                  is_numeric($value) && $value <= 2147483647 ? $value : null,         // linkedId
                   is_numeric($value) ? $row['siteId'] : null, // linkedSiteId
                   $type,                                      // type
                   is_numeric($value) ? null : $value,         // linkedUrl
